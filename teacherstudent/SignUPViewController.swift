@@ -13,8 +13,11 @@ class SignUPViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var labelMessage: UILabel!
+    
+    var database: DatabaseReference!
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         let email = emailTextField.text
@@ -23,6 +26,7 @@ class SignUPViewController: UIViewController {
         Auth.auth().createUser(withEmail: email!, password: password!, completion: { (user: User?, error) in
             if error == nil {
                 self.labelMessage.text = "You are successfully registered"
+                self.database.child("users").child((user?.uid)!).setValue(["name": self.nameTextField.text])
             } else{
                 self.labelMessage.text = "Registration failed... please try again"
             }
@@ -34,6 +38,8 @@ class SignUPViewController: UIViewController {
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
         }
+        
+        database = Database.database().reference()
     }
     
     override func didReceiveMemoryWarning() {
