@@ -13,10 +13,15 @@ import Firebase
 class LearnViewController: UIViewController {
     
     override func viewDidLoad() {
+       // var Database:
+    
+      
+       // Database = Database.database().reference()
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
+  
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

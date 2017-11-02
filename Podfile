@@ -3,7 +3,7 @@
 # platform :ios, '9.0'
 
 target 'teacherstudent' do
-  pod ‘Firebase/Auth’
+  pod 'Firebase/Auth'
   pod 'Firebase/Database'
 
 end
