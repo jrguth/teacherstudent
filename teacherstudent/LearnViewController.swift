@@ -8,11 +8,14 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class LearnViewController: UIViewController {
+    var database: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
