@@ -465,6 +465,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oo8-eT-tF9">
+                                <rect key="frame" x="133" y="549" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Message"/>
+                                <connections>
+                                    <action selector="messagestarter:" destination="geu-4P-Uku" eventType="touchUpInside" id="8hs-b6-T6R"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1380,9 +1388,9 @@
     <inferredMetricsTieBreakers>
         <segue reference="gvV-Wk-AeV"/>
         <segue reference="aa5-C5-gFS"/>
-        <segue reference="heW-o0-Q6Z"/>
-        <segue reference="T7F-cM-yDU"/>
         <segue reference="uuK-AE-nV1"/>
         <segue reference="SJA-zF-LYw"/>
+        <segue reference="gDa-AN-dio"/>
+        <segue reference="P2b-ev-WGt"/>
     </inferredMetricsTieBreakers>
 </document>
