@@ -9,11 +9,16 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class teacherDataBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //var Database:
+        
+        
+        // Database = Database.database().reference()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
