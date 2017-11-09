@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "teacherstudent/TeacherViewController.swift"
-            timestampString = "531881400.101686"
+            timestampString = "531888541.563693"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "teacherstudent/SignUPViewController.swift"
-            timestampString = "531881400.10383"
+            timestampString = "531887087.49205"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -42,13 +42,91 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "teacherstudent/TeacherViewController.swift"
-            timestampString = "531881400.104194"
+            timestampString = "531888541.56627"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
             landmarkName = "unwindToTeacherView(sender:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "teacherstudent/SettingsViewController.swift"
+            timestampString = "531888541.566428"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "SettingsViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "teacherstudent.SettingsViewController.mondayTextField.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "teacherstudent"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacobguth/Desktop/teacherstudent/teacherstudent/SettingsViewController.swift"
+                  timestampString = "531887027.197468"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "78">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "teacherstudent.SettingsViewController.mondayTextField.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "teacherstudent"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacobguth/Desktop/teacherstudent/teacherstudent/SettingsViewController.swift"
+                  timestampString = "531887027.213775"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "teacherstudent.SettingsViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; teacherstudent.SettingsViewController"
+                  moduleName = "teacherstudent"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacobguth/Desktop/teacherstudent/teacherstudent/SettingsViewController.swift"
+                  timestampString = "531887027.217027"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "teacherstudent.SettingsViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;teacherstudent.SettingsViewController&gt;"
+                  moduleName = "teacherstudent"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacobguth/Desktop/teacherstudent/teacherstudent/SettingsViewController.swift"
+                  timestampString = "531887027.221137"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

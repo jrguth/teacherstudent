@@ -21,8 +21,8 @@ class TeacherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        database = Database.database().reference()
-        database.keepSynced(true)
+        self.database = Database.database().reference()
+        self.database.keepSynced(true)
         
         self.userID = Auth.auth().currentUser?.uid
         

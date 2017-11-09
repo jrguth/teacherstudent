@@ -33,7 +33,8 @@ class SignUPViewController: UIViewController {
                 ref.child("student sessions").setValue(0)
                 ref.child("teacher rating").setValue(0.0)
                 ref.child("student rating").setValue(0.0)
-                ref.child("availability").setValue(" ")
+                ref.child("availability").setValue(["Monday":" ", "Tuesday":" ", "Wednesday": " ",
+                                                    "Thursday": " ","Friday": " ", "Saturday": " "])
                 ref.child("skills").setValue(["Add new skills using the plus button above!"])
             } else{
                 self.labelMessage.text = "Registration failed... please try again"
@@ -47,7 +48,7 @@ class SignUPViewController: UIViewController {
             FirebaseApp.configure()
         }
         
-        database = Database.database().reference()
+        self.database = Database.database().reference()
     }
     
     override func didReceiveMemoryWarning() {

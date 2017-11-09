@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8035836F1FA26FE8006BA002 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */; };
 		80B3AE971FA283270086566B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80B3AE961FA283260086566B /* GoogleService-Info.plist */; };
+		80E1F9971FB3ECDE00D065A2 /* EditSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E1F9961FB3ECDE00D065A2 /* EditSettingsViewController.swift */; };
 		CCBFACDF1F9913D800847B70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFACDE1F9913D800847B70 /* AppDelegate.swift */; };
 		CCBFACE11F9913D800847B70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFACE01F9913D800847B70 /* ViewController.swift */; };
 		CCBFACE41F9913D800847B70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFACE21F9913D800847B70 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		732B1ED346E723B1C794F5C8 /* libPods-teacherstudent.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-teacherstudent.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
 		80B3AE961FA283260086566B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		80E1F9961FB3ECDE00D065A2 /* EditSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsViewController.swift; sourceTree = "<group>"; };
 		876A9835B460A9B23599296E /* Pods-teacherstudent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teacherstudent.release.xcconfig"; path = "Pods/Target Support Files/Pods-teacherstudent/Pods-teacherstudent.release.xcconfig"; sourceTree = "<group>"; };
 		CCBFACDB1F9913D800847B70 /* teacherstudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teacherstudent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCBFACDE1F9913D800847B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				CCBFACE01F9913D800847B70 /* ViewController.swift */,
 				8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */,
 				80B3AE961FA283260086566B /* GoogleService-Info.plist */,
+				80E1F9961FB3ECDE00D065A2 /* EditSettingsViewController.swift */,
 			);
 			path = teacherstudent;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				CCBFAD261F993FEE00847B70 /* SessionViewController.swift in Sources */,
 				CCBFAD181F9921C200847B70 /* MessageViewController.swift in Sources */,
 				CCBFAD161F99213A00847B70 /* SettingsViewController.swift in Sources */,
+				80E1F9971FB3ECDE00D065A2 /* EditSettingsViewController.swift in Sources */,
 				8035836F1FA26FE8006BA002 /* SkillTableViewCell.swift in Sources */,
 				CCBFAD281F99412E00847B70 /* ConfirmSessionViewController.swift in Sources */,
 				CCBFAD101F99210400847B70 /* TeacherViewController.swift in Sources */,
