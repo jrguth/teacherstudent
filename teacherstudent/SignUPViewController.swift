@@ -26,7 +26,15 @@ class SignUPViewController: UIViewController {
         Auth.auth().createUser(withEmail: email!, password: password!, completion: { (user: User?, error) in
             if error == nil {
                 self.labelMessage.text = "You are successfully registered"
-                self.database.child("users").child((user?.uid)!).setValue(["name": self.nameTextField.text])
+                let ref = self.database.child("users").child((user?.uid)!)
+                
+                ref.child("name").setValue(self.nameTextField.text!)
+                ref.child("teacher sessions").setValue(0)
+                ref.child("student sessions").setValue(0)
+                ref.child("teacher rating").setValue(0.0)
+                ref.child("student rating").setValue(0.0)
+                ref.child("availability").setValue(" ")
+                ref.child("skills").setValue(["Add new skills using the plus button above!"])
             } else{
                 self.labelMessage.text = "Registration failed... please try again"
             }
