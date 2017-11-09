@@ -10,6 +10,8 @@
 		8035836F1FA26FE8006BA002 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */; };
 		80B3AE971FA283270086566B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80B3AE961FA283260086566B /* GoogleService-Info.plist */; };
 		CC6B1EAE1FB360F70060B73D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6B1EAD1FB360F70060B73D /* CoreLocation.framework */; };
+		CCA5760D1FB4EFE100DC6FA4 /* RatingsViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5760C1FB4EFE100DC6FA4 /* RatingsViewControler.swift */; };
+		CCA5760F1FB4F00B00DC6FA4 /* sessionediterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA5760E1FB4F00B00DC6FA4 /* sessionediterViewController.swift */; };
 		CCBFACDF1F9913D800847B70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFACDE1F9913D800847B70 /* AppDelegate.swift */; };
 		CCBFACE11F9913D800847B70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFACE01F9913D800847B70 /* ViewController.swift */; };
 		CCBFACE41F9913D800847B70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFACE21F9913D800847B70 /* Main.storyboard */; };
@@ -59,6 +61,8 @@
 		80B3AE961FA283260086566B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		876A9835B460A9B23599296E /* Pods-teacherstudent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teacherstudent.release.xcconfig"; path = "Pods/Target Support Files/Pods-teacherstudent/Pods-teacherstudent.release.xcconfig"; sourceTree = "<group>"; };
 		CC6B1EAD1FB360F70060B73D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CCA5760C1FB4EFE100DC6FA4 /* RatingsViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingsViewControler.swift; sourceTree = "<group>"; };
+		CCA5760E1FB4F00B00DC6FA4 /* sessionediterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sessionediterViewController.swift; sourceTree = "<group>"; };
 		CCBFACDB1F9913D800847B70 /* teacherstudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teacherstudent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCBFACDE1F9913D800847B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCBFACE01F9913D800847B70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				CCBFAD111F99211700847B70 /* LearnViewController.swift */,
 				CCBFAD191F9932C800847B70 /* loginViewController.swift */,
 				CCBFACE21F9913D800847B70 /* Main.storyboard */,
+				CCA5760C1FB4EFE100DC6FA4 /* RatingsViewControler.swift */,
+				CCA5760E1FB4F00B00DC6FA4 /* sessionediterViewController.swift */,
 				CCBFAD171F9921C200847B70 /* MessageViewController.swift */,
 				CCBFAD231F993FD000847B70 /* PendingSessionsViewController.swift */,
 				CCBFAD131F99212900847B70 /* ProfileViewController.swift */,
@@ -403,10 +409,12 @@
 				CCBFAD141F99212900847B70 /* ProfileViewController.swift in Sources */,
 				CCBFAD121F99211700847B70 /* LearnViewController.swift in Sources */,
 				CCBFAD261F993FEE00847B70 /* SessionViewController.swift in Sources */,
+				CCA5760F1FB4F00B00DC6FA4 /* sessionediterViewController.swift in Sources */,
 				CCBFAD181F9921C200847B70 /* MessageViewController.swift in Sources */,
 				CCBFAD161F99213A00847B70 /* SettingsViewController.swift in Sources */,
 				8035836F1FA26FE8006BA002 /* SkillTableViewCell.swift in Sources */,
 				CCBFAD281F99412E00847B70 /* ConfirmSessionViewController.swift in Sources */,
+				CCA5760D1FB4EFE100DC6FA4 /* RatingsViewControler.swift in Sources */,
 				CCBFAD101F99210400847B70 /* TeacherViewController.swift in Sources */,
 				CCBFAD221F993F9B00847B70 /* TeacherProfileViewController.swift in Sources */,
 				CCBFAD201F993F7F00847B70 /* teacherDataBaseViewController.swift in Sources */,
