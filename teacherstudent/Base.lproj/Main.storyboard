@@ -319,9 +319,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="e8G-DS-vD2">
-                        <barButtonItem key="rightBarButtonItem" title="settings" id="Gjf-Rs-4xK"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="e8G-DS-vD2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pLd-JV-0Ca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -549,7 +547,7 @@
                                 <segue destination="HeA-QP-IqR" kind="presentation" id="G2u-lc-hmO"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Not" id="XfH-XI-9x8"/>
+                        <barButtonItem key="rightBarButtonItem" id="3FQ-8a-bgv"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="t8d-Fx-IAy" id="Ypa-zb-XjQ"/>
@@ -718,7 +716,11 @@
                                 <segue destination="JdQ-d4-VTC" kind="push" id="NcK-1g-kfI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Note" id="2t5-HT-Unt"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="hQx-DR-DzH">
+                            <connections>
+                                <segue destination="fIK-tU-oaj" kind="push" id="Ru5-oR-E44"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ovp-7F-VRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -848,13 +850,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oKo-nA-nMU">
-                                <rect key="frame" x="147" y="605" width="97" height="42"/>
+                                <rect key="frame" x="147" y="558" width="97" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="select session"/>
                                 <connections>
-                                    <segue destination="7sY-ue-uX8" kind="popoverPresentation" popoverAnchorView="oKo-nA-nMU" id="ubQ-uv-RCh">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="7sY-ue-uX8" kind="push" id="kgv-wk-z3j"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -864,7 +864,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hzu-ah-NUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="618"/>
+            <point key="canvasLocation" x="805.60000000000002" y="617.54122938530736"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pjq-lQ-nqy">
@@ -882,9 +882,6 @@
                                 <rect key="frame" x="161" y="521" width="80" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="confirm"/>
-                                <connections>
-                                    <segue destination="zp2-Ie-2YN" kind="show" id="SPX-P6-bVw"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="with " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhY-4s-c2Q">
                                 <rect key="frame" x="89" y="104" width="37" height="21"/>
@@ -914,6 +911,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="OO0-lP-k3c"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p4V-sh-Yo0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1042,13 +1040,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="YXm-G7-USN">
-                        <barButtonItem key="rightBarButtonItem" title="Note" id="3nT-dh-w1L"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Settings" id="YXm-G7-USN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KpC-dh-4vT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-514.39999999999998" y="3402.5487256371816"/>
+            <point key="canvasLocation" x="2012" y="1348"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pG1-0V-0VR">
@@ -1508,25 +1504,6 @@
             </objects>
             <point key="canvasLocation" x="-1551" y="-78"/>
         </scene>
-        <!--settings-->
-        <scene sceneID="JIi-vd-QZM">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="STU-h1-A1K" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="settings" image="icons8-Settings-50" selectedImage="icons8-Settings-50" id="ljh-g9-DFH"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0MH-YM-8iZ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="fIK-tU-oaj" kind="relationship" relationship="rootViewController" id="6hc-SY-qYn"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wSV-oc-B7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2313" y="3743"/>
-        </scene>
         <!--message-->
         <scene sceneID="e2M-XN-2sa">
             <objects>
@@ -1544,21 +1521,20 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TSz-WD-b5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1551" y="2974"/>
+            <point key="canvasLocation" x="-1655" y="3136"/>
         </scene>
     </scenes>
     <resources>
         <image name="icons8-Learning-50" width="50" height="50"/>
         <image name="icons8-Message-50" width="50" height="50"/>
-        <image name="icons8-Settings-50" width="50" height="50"/>
         <image name="icons8-Teacher Hiring-50" width="50" height="50"/>
         <image name="icons8-User-50" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T7F-cM-yDU"/>
-        <segue reference="gvV-Wk-AeV"/>
         <segue reference="aa5-C5-gFS"/>
-        <segue reference="heW-o0-Q6Z"/>
-        <segue reference="SJA-zF-LYw"/>
+        <segue reference="gvV-Wk-AeV"/>
+        <segue reference="T7F-cM-yDU"/>
+        <segue reference="wz0-cH-ZHX"/>
+        <segue reference="gDa-AN-dio"/>
     </inferredMetricsTieBreakers>
 </document>
