@@ -17,6 +17,10 @@ class PendingSessionsViewController: UIViewController, UITableViewDelegate, UITa
     var pendingSessions: Dictionary<String,Dictionary<String,String>> = Dictionary<String,Dictionary<String,String>>()
     var userID: String?
     
+    var isUnwinding: Bool!
+    var confirmed: Bool!
+    var learnerName: String!
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -25,6 +29,10 @@ class PendingSessionsViewController: UIViewController, UITableViewDelegate, UITa
         self.database.keepSynced(true)
         
         self.title = "Pending Sessions"
+        
+        self.isUnwinding = false
+        self.confirmed = false
+        self.learnerName = ""
         
         self.userID = Auth.auth().currentUser?.uid
         
@@ -40,6 +48,23 @@ class PendingSessionsViewController: UIViewController, UITableViewDelegate, UITa
                 self.tableView.reloadData()
             }
         })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if(self.isUnwinding){
+            if(self.confirmed){
+                let alertController = UIAlertController(title: nil, message: "Your session with \(self.learnerName!) has been confirmed!", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+            } else {
+                let alertController = UIAlertController(title: nil, message: "You have successfully denied session request from \(self.learnerName!)", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,13 +95,18 @@ class PendingSessionsViewController: UIViewController, UITableViewDelegate, UITa
     @IBAction func unwindToPendingSessionsView (sender: UIStoryboardSegue){
         if let source = sender.source as? ConfirmSessionViewController {
             
+            self.isUnwinding = true
+            
             let confirmed: Bool = source.confirmed
+            
             let pendingSession: Dictionary<String,String> = source.pendingSession
             let sessionID = source.sessionID
+            self.learnerName = pendingSession["learner name"]
             
             let pendingSessionsRef = self.database.child("session requests")
             
             if (confirmed) {
+                self.confirmed = true
                 let confirmedSessionsRef = self.database.child("confirmed sessions")
                 let teacherRef = self.database.child("users").child(pendingSession["teacher id"]!)
                 let learnerRef = self.database.child("users").child(pendingSession["learner id"]!)
@@ -88,17 +118,8 @@ class PendingSessionsViewController: UIViewController, UITableViewDelegate, UITa
                     teacherRef.child("upcoming sessions/\(sessionID!)").setValue("Teacher")
                     learnerRef.child("upcoming sessions/\(sessionID!)").setValue("Student")
                 })
-                
-                let alertController = UIAlertController(title: nil, message: "Your session with \(pendingSession["learner name"]!) has been confirmed!", preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                alertController.addAction(defaultAction)
-                self.present(alertController, animated: true, completion: nil)
-                
             } else {
-                let alertController = UIAlertController(title: nil, message: "You have successfully denied session request from \(pendingSession["learner name"]!)", preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                alertController.addAction(defaultAction)
-                self.present(alertController, animated: true, completion: nil)
+                self.confirmed = false
             }
             let requestsRef = self.database.child("users").child(pendingSession["teacher id"]!)
             requestsRef.child("session requests").observeSingleEvent(of: .value, with: {snapshot in

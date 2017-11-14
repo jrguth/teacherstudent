@@ -17,6 +17,7 @@ class teacherDataBaseViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var tableView: UITableView!
     
     var database: DatabaseReference!
+    var userID: String!
     
     @IBOutlet weak var selectedSkillLabel: UILabel!
     
@@ -31,18 +32,24 @@ class teacherDataBaseViewController: UIViewController, UITableViewDelegate, UITa
         self.database = Database.database().reference()
         self.database.keepSynced(true)
     
+        self.userID = Auth.auth().currentUser?.uid
+        
         self.selectedSkillLabel.text = ("Teachers for "+(self.skill)!)
         
         let ref = database.child("teachers").child(self.skill!)
         ref.observeSingleEvent(of: .value, with:{snapshot in
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 var teacher: [String] = [String]()
-                teacher.append(child.childSnapshot(forPath: "name").value as! String)
-                teacher.append(String(child.childSnapshot(forPath: "teacher rating").value as! Double))
-                teacher.append(String(child.childSnapshot(forPath: "teacher sessions").value as! Int))
-                teacher.append(child.key)
-                
-                self.teacherList.append(teacher)
+                if(child.key != self.userID){
+                    teacher.append(child.childSnapshot(forPath: "name").value as! String)
+                    teacher.append(String(child.childSnapshot(forPath: "teacher rating").value as! Double))
+                    teacher.append(String(child.childSnapshot(forPath: "teacher sessions").value as! Int))
+                    //APPEND TEACHER LOCATION HERE
+                    //teacher.append(String(child.childSnapshot(forPath: "teacher location").value as! String))
+                    teacher.append(child.key)
+                    
+                    self.teacherList.append(teacher)
+                }
             }
             self.tableView.reloadData()
         })
@@ -62,6 +69,8 @@ class teacherDataBaseViewController: UIViewController, UITableViewDelegate, UITa
         cell.nameLabel.text = teacherList[indexPath.row][0]
         cell.ratingLabel.text = teacherList[indexPath.row][1] + " / 10"
         cell.completedSessionsLabel.text = teacherList[indexPath.row][2]
+        //ADD DISTANCE LABEL HERE
+        //cell.distanceLabel.text = teacherList[indexPath.row][3]
         return cell
     }
 

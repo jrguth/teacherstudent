@@ -80,7 +80,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if(self.upcomingSessionsIDs.count > 0){
             let key = Array(self.upcomingSessions.keys)[indexPath.row]
-            cell.infoLabel.text = "Session with " + self.upcomingSessions[key]!["other name"]!
+            let date = self.upcomingSessions[key]!["date time"]!
+            cell.infoLabel.text = "Session with " + self.upcomingSessions[key]!["other name"]! + " \(date)"
+            
         }
         return cell
     }
