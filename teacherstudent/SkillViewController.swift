@@ -35,16 +35,20 @@ class SkillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return skills.count
+        return self.skills.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return skills[row]
+        return self.skills[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedSkill = skills[row]
-        selectedSkillLabel.text = selectedSkill
+        self.selectedSkill = skills[row]
+        self.selectedSkillLabel.text = selectedSkill
+    }
+    
+    @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
