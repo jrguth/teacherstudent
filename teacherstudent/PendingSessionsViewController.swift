@@ -8,18 +8,117 @@
 
 
 import UIKit
+import Firebase
 
-class PendingSessionsViewController: UIViewController {
+class PendingSessionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-   
+    var database: DatabaseReference!
+    var pendingSessionIDs: [String] = [String]()
+    var pendingSessions: Dictionary<String,Dictionary<String,String>> = Dictionary<String,Dictionary<String,String>>()
+    var userID: String?
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.database = Database.database().reference()
+        self.database.keepSynced(true)
+        
+        self.title = "Pending Sessions"
+        
+        self.userID = Auth.auth().currentUser?.uid
+        
+        database.observeSingleEvent(of: .value, with: {snapshot in
+            
+            if(snapshot.hasChild("users/\(self.userID!)/session requests")){
+                self.pendingSessionIDs = snapshot.childSnapshot(forPath:"users/\(self.userID!)/session requests").value as! [String]
+                for id in self.pendingSessionIDs {
+                    let request = snapshot.childSnapshot(forPath: "session requests/\(id)").value as! Dictionary<String,String>
+                    //request["session id"] = id
+                    self.pendingSessions[id] = request
+                }
+                self.tableView.reloadData()
+            }
+        })
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pendingSessionIDs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: PendingSessionTableViewCell = self.tableView.dequeueReusableCell(withIdentifier:"PendingSessionTableViewCell", for: indexPath) as! PendingSessionTableViewCell
+        
+        if(self.pendingSessionIDs.count > 0){
+            let key = Array(self.pendingSessions.keys)[indexPath.row]
+            cell.sessionInfoLabel.text = "Session request from " + self.pendingSessions[key]!["learner name"]!
+        }
+        return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ConfirmSessionViewController {
+            let cell = sender as? PendingSessionTableViewCell
+            let indexPath = tableView.indexPath(for: cell!)
+            let key = Array(self.pendingSessions.keys)[(indexPath?.row)!]
+            
+            destination.sessionID = key
+            destination.pendingSession = self.pendingSessions[key]
+        }
+    }
+    
+    @IBAction func unwindToPendingSessionsView (sender: UIStoryboardSegue){
+        if let source = sender.source as? ConfirmSessionViewController {
+            
+            let confirmed: Bool = source.confirmed
+            let pendingSession: Dictionary<String,String> = source.pendingSession
+            let sessionID = source.sessionID
+            
+            let pendingSessionsRef = self.database.child("session requests")
+            
+            if (confirmed) {
+                let confirmedSessionsRef = self.database.child("confirmed sessions")
+                let teacherRef = self.database.child("users").child(pendingSession["teacher id"]!)
+                let learnerRef = self.database.child("users").child(pendingSession["learner id"]!)
+                
+                self.database.observeSingleEvent(of: .value, with: {snapshot in
+                    
+                    confirmedSessionsRef.child(sessionID!).setValue(pendingSession)
+                    
+                    teacherRef.child("upcoming sessions/\(sessionID!)").setValue("Teacher")
+                    learnerRef.child("upcoming sessions/\(sessionID!)").setValue("Student")
+                })
+                
+                let alertController = UIAlertController(title: nil, message: "Your session with \(pendingSession["learner name"]!) has been confirmed!", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else {
+                let alertController = UIAlertController(title: nil, message: "You have successfully denied session request from \(pendingSession["learner name"]!)", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+            let requestsRef = self.database.child("users").child(pendingSession["teacher id"]!)
+            requestsRef.child("session requests").observeSingleEvent(of: .value, with: {snapshot in
+                var requests: [String] = snapshot.value as! [String]
+                let index = requests.index(of: sessionID!)
+                requests.remove(at: index!)
+                requestsRef.child("session requests").setValue(requests)
+            })
+            
+            pendingSessionsRef.child(sessionID!).removeValue()
+            
+            let index = self.pendingSessionIDs.index(of: sessionID!)
+            self.pendingSessionIDs.remove(at: index!)
+            self.pendingSessions.removeValue(forKey: sessionID!)
+            self.tableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    // testing
 }

@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		802711F11FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802711F01FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift */; };
 		8035836F1FA26FE8006BA002 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */; };
+		8051E2AD1FBA687A00104FAA /* PendingSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8051E2AC1FBA687A00104FAA /* PendingSessionTableViewCell.swift */; };
+		809B81381FB8C820003AD78E /* TeacherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B81371FB8C820003AD78E /* TeacherTableViewCell.swift */; };
+		80A093001FBA407C00D15DFD /* RequestSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A092FF1FBA407C00D15DFD /* RequestSessionViewController.swift */; };
 		80B3AE971FA283270086566B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80B3AE961FA283260086566B /* GoogleService-Info.plist */; };
+		80E1F9971FB3ECDE00D065A2 /* EditSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E1F9961FB3ECDE00D065A2 /* EditSettingsViewController.swift */; };
 		CCBFACDF1F9913D800847B70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFACDE1F9913D800847B70 /* AppDelegate.swift */; };
 		CCBFACE11F9913D800847B70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFACE01F9913D800847B70 /* ViewController.swift */; };
 		CCBFACE41F9913D800847B70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFACE21F9913D800847B70 /* Main.storyboard */; };
@@ -54,8 +59,13 @@
 
 /* Begin PBXFileReference section */
 		732B1ED346E723B1C794F5C8 /* libPods-teacherstudent.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-teacherstudent.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		802711F01FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingSessionTableViewCell.swift; sourceTree = "<group>"; };
 		8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
+		8051E2AC1FBA687A00104FAA /* PendingSessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingSessionTableViewCell.swift; sourceTree = "<group>"; };
+		809B81371FB8C820003AD78E /* TeacherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTableViewCell.swift; sourceTree = "<group>"; };
+		80A092FF1FBA407C00D15DFD /* RequestSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSessionViewController.swift; sourceTree = "<group>"; };
 		80B3AE961FA283260086566B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		80E1F9961FB3ECDE00D065A2 /* EditSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsViewController.swift; sourceTree = "<group>"; };
 		876A9835B460A9B23599296E /* Pods-teacherstudent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teacherstudent.release.xcconfig"; path = "Pods/Target Support Files/Pods-teacherstudent/Pods-teacherstudent.release.xcconfig"; sourceTree = "<group>"; };
 		CCBFACDB1F9913D800847B70 /* teacherstudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teacherstudent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCBFACDE1F9913D800847B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +191,11 @@
 				CCBFACE01F9913D800847B70 /* ViewController.swift */,
 				8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */,
 				80B3AE961FA283260086566B /* GoogleService-Info.plist */,
+				80E1F9961FB3ECDE00D065A2 /* EditSettingsViewController.swift */,
+				809B81371FB8C820003AD78E /* TeacherTableViewCell.swift */,
+				80A092FF1FBA407C00D15DFD /* RequestSessionViewController.swift */,
+				8051E2AC1FBA687A00104FAA /* PendingSessionTableViewCell.swift */,
+				802711F01FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift */,
 			);
 			path = teacherstudent;
 			sourceTree = "<group>";
@@ -401,6 +416,8 @@
 				CCBFAD261F993FEE00847B70 /* SessionViewController.swift in Sources */,
 				CCBFAD181F9921C200847B70 /* MessageViewController.swift in Sources */,
 				CCBFAD161F99213A00847B70 /* SettingsViewController.swift in Sources */,
+				80E1F9971FB3ECDE00D065A2 /* EditSettingsViewController.swift in Sources */,
+				809B81381FB8C820003AD78E /* TeacherTableViewCell.swift in Sources */,
 				8035836F1FA26FE8006BA002 /* SkillTableViewCell.swift in Sources */,
 				CCBFAD281F99412E00847B70 /* ConfirmSessionViewController.swift in Sources */,
 				CCBFAD101F99210400847B70 /* TeacherViewController.swift in Sources */,
@@ -412,7 +429,10 @@
 				CCBFACE71F9913D800847B70 /* teacherstudent.xcdatamodeld in Sources */,
 				CCBFAD2A1F9944BF00847B70 /* SkillViewController.swift in Sources */,
 				CCBFAD241F993FD000847B70 /* PendingSessionsViewController.swift in Sources */,
+				80A093001FBA407C00D15DFD /* RequestSessionViewController.swift in Sources */,
+				8051E2AD1FBA687A00104FAA /* PendingSessionTableViewCell.swift in Sources */,
 				CCBFAD1E1F99331300847B70 /* ForgotViewController.swift in Sources */,
+				802711F11FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift in Sources */,
 				CCBFAD1A1F9932C800847B70 /* loginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
