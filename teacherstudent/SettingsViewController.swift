@@ -67,8 +67,9 @@ class SettingsViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! EditSettingsViewController
-        destinationVC.dict = self.availability
+        if let destinationVC = segue.destination as? EditSettingsViewController{
+            destinationVC.dict = self.availability
+        }
     }
     
     @IBAction func unwindToSettingsView (sender: UIStoryboardSegue){
