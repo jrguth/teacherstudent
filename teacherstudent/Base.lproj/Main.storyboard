@@ -1004,25 +1004,6 @@
             </objects>
             <point key="canvasLocation" x="-514.39999999999998" y="619.34032983508246"/>
         </scene>
-        <!--Session View Controller-->
-        <scene sceneID="4Fi-Pm-QK0">
-            <objects>
-                <viewController id="blO-VH-gNI" customClass="SessionViewController" customModule="teacherstudent" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MQU-iz-p1J"/>
-                        <viewControllerLayoutGuide type="bottom" id="6uP-Uw-Kcu"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DHw-mN-iKC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="ell-rb-9PB"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CgE-GD-52w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="305" y="620"/>
-        </scene>
         <!--Session History-->
         <scene sceneID="htb-rz-bqP">
             <objects>
