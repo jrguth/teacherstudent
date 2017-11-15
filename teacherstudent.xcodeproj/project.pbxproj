@@ -588,6 +588,7 @@
 			baseConfigurationReference = D1A5E6F75A1F3F43FC0CEF7C /* Pods-teacherstudent.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				DEVELOPMENT_TEAM = 625732G463;
 				INFOPLIST_FILE = teacherstudent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -602,6 +603,7 @@
 			baseConfigurationReference = 876A9835B460A9B23599296E /* Pods-teacherstudent.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				DEVELOPMENT_TEAM = 625732G463;
 				INFOPLIST_FILE = teacherstudent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
