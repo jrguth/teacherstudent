@@ -21,11 +21,13 @@ class RequestSessionViewController: UIViewController {
     var skill: String?
     
     @IBOutlet weak var skillLabel: UILabel!
-    @IBOutlet weak var teacherNameLabel: UILabel!
-    @IBOutlet weak var dateTimeLabel: UILabel!
-    
+
     @IBOutlet weak var locationTextField: UITextField!
     
+    @IBOutlet weak var dateTimeLabel: UILabel!
+ 
+    @IBOutlet weak var teacherNameLabel: UILabel!
+
     @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
