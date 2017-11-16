@@ -9,9 +9,13 @@
 import Foundation
 import UIKit
 import Firebase
-class LearnViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+import CoreLocation
+class LearnViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,CLLocationManagerDelegate {
+    
+ var locationManager = CLLocationManager.init()
     
     @IBOutlet weak var selectedSkillLabel: UILabel!
+   
     @IBOutlet weak var skillsPickerView: UIPickerView!
     
     @IBOutlet weak var tableView: UIPickerView!
@@ -21,10 +25,17 @@ class LearnViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     var skills: [String] = [String]()
     var teachersInfo: [[String]] = [[String]]()
-    
+    let manger = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if CLLocationManager.locationServicesEnabled() {
+            //locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+           
+        }
         self.title = "Learn"
         
         skills = ["Basketball","Cooking","Coding","Mathematics","Microsoft Office"]
@@ -34,7 +45,31 @@ class LearnViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         database = Database.database().reference()
         database.keepSynced(true)
     }
+    @IBAction func locationswitch(_ sender: UISwitch) {
+        if(sender.isOn){
+               //locationManger.requestWhenInUseAuthorization() in the app location
+        print( locationManager.location!)
+            
+        }
+    }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userlocation:CLLocation = locations[0]
+            print( userlocation.coordinate.longitude)
+            print(userlocation.coordinate.latitude)
+        }
+        
+
+        
+
+    @IBAction func distancefromzip(_ sender: UITextField) {
+    }
+    @IBAction func zipcode(_ sender: UITextField) {
+        
+    }
+    
+    @IBAction func distancefrommefeild(_ sender: UITextField) {
+    }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

@@ -65,6 +65,7 @@ class PendingSessionsViewController: UIViewController, UITableViewDelegate, UITa
                 self.present(alertController, animated: true, completion: nil)
             }
         }
+        self.isUnwinding = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
