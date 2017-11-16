@@ -14,11 +14,11 @@
 		80A093001FBA407C00D15DFD /* RequestSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A092FF1FBA407C00D15DFD /* RequestSessionViewController.swift */; };
 		80B3AE971FA283270086566B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80B3AE961FA283260086566B /* GoogleService-Info.plist */; };
 		80E1F9971FB3ECDE00D065A2 /* EditSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E1F9961FB3ECDE00D065A2 /* EditSettingsViewController.swift */; };
+		CCB7B77B1FBCAA6600CFCF61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB7B77A1FBCAA6600CFCF61 /* Assets.xcassets */; };
 		CCBFACDF1F9913D800847B70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFACDE1F9913D800847B70 /* AppDelegate.swift */; };
 		CCBFACE11F9913D800847B70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFACE01F9913D800847B70 /* ViewController.swift */; };
 		CCBFACE41F9913D800847B70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFACE21F9913D800847B70 /* Main.storyboard */; };
 		CCBFACE71F9913D800847B70 /* teacherstudent.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCBFACE51F9913D800847B70 /* teacherstudent.xcdatamodeld */; };
-		CCBFACE91F9913D800847B70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCBFACE81F9913D800847B70 /* Assets.xcassets */; };
 		CCBFACEC1F9913D800847B70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBFACEA1F9913D800847B70 /* LaunchScreen.storyboard */; };
 		CCBFACF71F9913D800847B70 /* teacherstudentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFACF61F9913D800847B70 /* teacherstudentTests.swift */; };
 		CCBFAD021F9913D800847B70 /* teacherstudentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBFAD011F9913D800847B70 /* teacherstudentUITests.swift */; };
@@ -67,12 +67,12 @@
 		80B3AE961FA283260086566B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		80E1F9961FB3ECDE00D065A2 /* EditSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsViewController.swift; sourceTree = "<group>"; };
 		876A9835B460A9B23599296E /* Pods-teacherstudent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teacherstudent.release.xcconfig"; path = "Pods/Target Support Files/Pods-teacherstudent/Pods-teacherstudent.release.xcconfig"; sourceTree = "<group>"; };
+		CCB7B77A1FBCAA6600CFCF61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCBFACDB1F9913D800847B70 /* teacherstudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teacherstudent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCBFACDE1F9913D800847B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCBFACE01F9913D800847B70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CCBFACE31F9913D800847B70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CCBFACE61F9913D800847B70 /* teacherstudent.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = teacherstudent.xcdatamodel; sourceTree = "<group>"; };
-		CCBFACE81F9913D800847B70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCBFACEB1F9913D800847B70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCBFACED1F9913D800847B70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCBFACF21F9913D800847B70 /* teacherstudentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teacherstudentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,8 +167,8 @@
 		CCBFACDD1F9913D800847B70 /* teacherstudent */ = {
 			isa = PBXGroup;
 			children = (
+				CCB7B77A1FBCAA6600CFCF61 /* Assets.xcassets */,
 				CCBFACDE1F9913D800847B70 /* AppDelegate.swift */,
-				CCBFACE81F9913D800847B70 /* Assets.xcassets */,
 				CCBFAD271F99412E00847B70 /* ConfirmSessionViewController.swift */,
 				CCBFAD1D1F99331300847B70 /* ForgotViewController.swift */,
 				CCBFACED1F9913D800847B70 /* Info.plist */,
@@ -333,7 +333,7 @@
 			files = (
 				CCBFACEC1F9913D800847B70 /* LaunchScreen.storyboard in Resources */,
 				80B3AE971FA283270086566B /* GoogleService-Info.plist in Resources */,
-				CCBFACE91F9913D800847B70 /* Assets.xcassets in Resources */,
+				CCB7B77B1FBCAA6600CFCF61 /* Assets.xcassets in Resources */,
 				CCBFACE41F9913D800847B70 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +588,7 @@
 			baseConfigurationReference = D1A5E6F75A1F3F43FC0CEF7C /* Pods-teacherstudent.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				DEVELOPMENT_TEAM = 625732G463;
 				INFOPLIST_FILE = teacherstudent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -602,6 +603,7 @@
 			baseConfigurationReference = 876A9835B460A9B23599296E /* Pods-teacherstudent.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				DEVELOPMENT_TEAM = 625732G463;
 				INFOPLIST_FILE = teacherstudent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

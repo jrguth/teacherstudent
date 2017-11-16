@@ -35,7 +35,7 @@ class SignUPViewController: UIViewController {
                 ref.child("student rating").setValue(0.0)
                 ref.child("availability").setValue(["Monday":" ", "Tuesday":" ", "Wednesday": " ",
                                                     "Thursday": " ","Friday": " ", "Saturday": " "])
-                ref.child("skills").setValue(["Add new skills using the plus button above!"])
+                //ref.child("skills").setValue(["Add new skills using the plus button above!"])
             } else{
                 self.labelMessage.text = "Registration failed... please try again"
             }

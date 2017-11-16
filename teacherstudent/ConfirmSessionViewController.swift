@@ -20,10 +20,13 @@ class ConfirmSessionViewController: UIViewController {
 
     var confirmed: Bool = true
     
+   
     @IBOutlet weak var learnerNameLabel: UILabel!
+   
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
+ 
     
+    @IBOutlet weak var locationLabel: UITextField!
     @IBOutlet weak var denyButton: UIButton!
     
     override func viewDidLoad() {
