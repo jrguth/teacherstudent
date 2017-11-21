@@ -28,6 +28,10 @@ class LearnViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     let manger = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        database = Database.database().reference()
+        database.keepSynced(true)
+        
         if CLLocationManager.locationServicesEnabled() {
             //locationManager.requestAlwaysAuthorization()
             locationManager.requestWhenInUseAuthorization()
@@ -41,9 +45,6 @@ class LearnViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         skills = ["Basketball","Cooking","Coding","Mathematics","Microsoft Office"]
         selectedSkill = skills[0]
         selectedSkillLabel.text = selectedSkill
-        
-        database = Database.database().reference()
-        database.keepSynced(true)
     }
     @IBAction func locationswitch(_ sender: UISwitch) {
         if(sender.isOn){

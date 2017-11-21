@@ -64,7 +64,7 @@ class RequestSessionViewController: UIViewController {
     }
     
     @IBAction func submitRequest(_ sender: UIButton) {
-        let ref = database.child("session requests").childByAutoId()
+        let ref = self.database.child("session requests").childByAutoId()
         
         ref.child("learner id").setValue(self.userID)
         ref.child("teacher id").setValue(self.teacherUserID)
@@ -74,6 +74,33 @@ class RequestSessionViewController: UIViewController {
         ref.child("date time").setValue(self.dateTimeLabel.text!)
         ref.child("location").setValue(self.locationTextField.text!)
         
+        let teacherRef = self.database.child("users").child(self.teacherUserID!)
+        let learnerRef = self.database.child("users").child(self.userID!)
+        
+        self.database.observeSingleEvent(of: .value, with: {snapshot in
+            
+            var received: Dictionary<String,String>
+            if snapshot.hasChild("users/\(self.teacherUserID!)/session requests") {
+                received = snapshot.childSnapshot(forPath: "users/\(self.teacherUserID!)/session requests").value as! Dictionary<String,String>
+            } else {
+                received = Dictionary<String,String>()
+            }
+            
+            var sent: Dictionary<String,String>
+            if snapshot.hasChild("users/\(self.userID!)/sent requests") {
+                sent = snapshot.childSnapshot(forPath: "users/\(self.userID!)/sent requests").value as! Dictionary<String,String>
+            } else {
+                sent = Dictionary<String,String>()
+            }
+            
+            received[ref.key] = self.userID
+            sent[ref.key] = self.teacherUserID
+            
+            teacherRef.child("session requests").setValue(received)
+            learnerRef.child("sent requests").setValue(sent)
+        })
+        
+        /*
         let teacherRef = database.child("users").child(self.teacherUserID!)
         teacherRef.observeSingleEvent(of: .value, with: {snapshot in
             var requests: [String]
@@ -85,6 +112,18 @@ class RequestSessionViewController: UIViewController {
             requests.append(ref.key)
             teacherRef.child("session requests").setValue(requests)
         })
+        
+        let learnerRef = self.database.child("users").child(self.userID!)
+        learnerRef.observeSingleEvent(of: .value, with: {snapshot in
+            var sentRequests: [String]
+            if snapshot.hasChild("sent requests") {
+                sentRequests = snapshot.childSnapshot(forPath: "sent requests").value as! [String]
+            } else {
+                sentRequests = [String]()
+            }
+            sentRequests.append(ref.key)
+            learnerRef.child("sent requests").setValue(sentRequests)
+        })*/
         
         let alert = UIAlertController(title: nil, message: "Request sent!", preferredStyle: UIAlertControllerStyle.alert)
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: {action in

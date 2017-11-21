@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		801963001FC381B3000DBA2B /* SentRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801962FF1FC381B3000DBA2B /* SentRequestTableViewCell.swift */; };
 		802711F11FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802711F01FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift */; };
 		8035836F1FA26FE8006BA002 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */; };
+		803838F01FC382E40016491A /* SentRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803838EF1FC382E40016491A /* SentRequestsViewController.swift */; };
+		803838F21FC3944C0016491A /* CancelRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803838F11FC3944C0016491A /* CancelRequestViewController.swift */; };
 		8051E2AD1FBA687A00104FAA /* PendingSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8051E2AC1FBA687A00104FAA /* PendingSessionTableViewCell.swift */; };
 		809B81381FB8C820003AD78E /* TeacherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B81371FB8C820003AD78E /* TeacherTableViewCell.swift */; };
 		80A093001FBA407C00D15DFD /* RequestSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A092FF1FBA407C00D15DFD /* RequestSessionViewController.swift */; };
@@ -59,8 +62,11 @@
 
 /* Begin PBXFileReference section */
 		732B1ED346E723B1C794F5C8 /* libPods-teacherstudent.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-teacherstudent.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		801962FF1FC381B3000DBA2B /* SentRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentRequestTableViewCell.swift; sourceTree = "<group>"; };
 		802711F01FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingSessionTableViewCell.swift; sourceTree = "<group>"; };
 		8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
+		803838EF1FC382E40016491A /* SentRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentRequestsViewController.swift; sourceTree = "<group>"; };
+		803838F11FC3944C0016491A /* CancelRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRequestViewController.swift; sourceTree = "<group>"; };
 		8051E2AC1FBA687A00104FAA /* PendingSessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingSessionTableViewCell.swift; sourceTree = "<group>"; };
 		809B81371FB8C820003AD78E /* TeacherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTableViewCell.swift; sourceTree = "<group>"; };
 		80A092FF1FBA407C00D15DFD /* RequestSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSessionViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +202,9 @@
 				80A092FF1FBA407C00D15DFD /* RequestSessionViewController.swift */,
 				8051E2AC1FBA687A00104FAA /* PendingSessionTableViewCell.swift */,
 				802711F01FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift */,
+				801962FF1FC381B3000DBA2B /* SentRequestTableViewCell.swift */,
+				803838EF1FC382E40016491A /* SentRequestsViewController.swift */,
+				803838F11FC3944C0016491A /* CancelRequestViewController.swift */,
 			);
 			path = teacherstudent;
 			sourceTree = "<group>";
@@ -424,13 +433,16 @@
 				CCBFAD221F993F9B00847B70 /* TeacherProfileViewController.swift in Sources */,
 				CCBFAD201F993F7F00847B70 /* teacherDataBaseViewController.swift in Sources */,
 				CCBFAD691FA2410B00847B70 /* SessionHistroyViewController.swift in Sources */,
+				801963001FC381B3000DBA2B /* SentRequestTableViewCell.swift in Sources */,
 				CCBFACE11F9913D800847B70 /* ViewController.swift in Sources */,
 				CCBFACDF1F9913D800847B70 /* AppDelegate.swift in Sources */,
 				CCBFACE71F9913D800847B70 /* teacherstudent.xcdatamodeld in Sources */,
 				CCBFAD2A1F9944BF00847B70 /* SkillViewController.swift in Sources */,
 				CCBFAD241F993FD000847B70 /* PendingSessionsViewController.swift in Sources */,
 				80A093001FBA407C00D15DFD /* RequestSessionViewController.swift in Sources */,
+				803838F21FC3944C0016491A /* CancelRequestViewController.swift in Sources */,
 				8051E2AD1FBA687A00104FAA /* PendingSessionTableViewCell.swift in Sources */,
+				803838F01FC382E40016491A /* SentRequestsViewController.swift in Sources */,
 				CCBFAD1E1F99331300847B70 /* ForgotViewController.swift in Sources */,
 				802711F11FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift in Sources */,
 				CCBFAD1A1F9932C800847B70 /* loginViewController.swift in Sources */,
