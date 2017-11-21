@@ -21,12 +21,11 @@ class ConfirmSessionViewController: UIViewController {
     var confirmed: Bool = true
     
    
+    @IBOutlet weak var skillLabel: UILabel!
     @IBOutlet weak var learnerNameLabel: UILabel!
-   
     @IBOutlet weak var dateLabel: UILabel!
- 
+    @IBOutlet weak var locationLabel: UILabel!
     
-    @IBOutlet weak var locationLabel: UITextField!
     @IBOutlet weak var denyButton: UIButton!
     
     override func viewDidLoad() {
@@ -34,6 +33,7 @@ class ConfirmSessionViewController: UIViewController {
         self.database = Database.database().reference()
         self.database.keepSynced(true)
         
+        skillLabel.text = self.pendingSession["skill"]
         learnerNameLabel.text = self.pendingSession["learner name"]
         dateLabel.text = self.pendingSession["date time"]
         locationLabel.text = self.pendingSession["location"]

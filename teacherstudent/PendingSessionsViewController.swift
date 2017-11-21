@@ -28,8 +28,6 @@ class PendingSessionsViewController: UIViewController, UITableViewDelegate, UITa
         self.database = Database.database().reference()
         self.database.keepSynced(true)
         
-        self.title = "Pending Sessions"
-        
         self.isUnwinding = false
         self.confirmed = false
         self.learnerName = ""
@@ -38,6 +36,15 @@ class PendingSessionsViewController: UIViewController, UITableViewDelegate, UITa
         
         database.observeSingleEvent(of: .value, with: {snapshot in
             
+            if(snapshot.hasChild("users/\(self.userID!)/session requests")) {
+                self.pendingSessionIDs = [String]((snapshot.childSnapshot(forPath: "users/\(self.userID!)/session requests").value as! Dictionary<String,String>).keys)
+                for id in self.pendingSessionIDs {
+                    let request = snapshot.childSnapshot(forPath: "session requests/\(id)").value as! Dictionary<String,String>
+                    self.pendingSessions[id] = request
+                }
+                self.tableView.reloadData()
+            }
+            /*
             if(snapshot.hasChild("users/\(self.userID!)/session requests")){
                 self.pendingSessionIDs = snapshot.childSnapshot(forPath:"users/\(self.userID!)/session requests").value as! [String]
                 for id in self.pendingSessionIDs {
@@ -46,7 +53,7 @@ class PendingSessionsViewController: UIViewController, UITableViewDelegate, UITa
                     self.pendingSessions[id] = request
                 }
                 self.tableView.reloadData()
-            }
+            }*/
         })
     }
     
@@ -103,9 +110,7 @@ class PendingSessionsViewController: UIViewController, UITableViewDelegate, UITa
             let pendingSession: Dictionary<String,String> = source.pendingSession
             let sessionID = source.sessionID
             self.learnerName = pendingSession["learner name"]
-            
-            let pendingSessionsRef = self.database.child("session requests")
-            
+        
             if (confirmed) {
                 self.confirmed = true
                 let confirmedSessionsRef = self.database.child("confirmed sessions")
@@ -122,15 +127,18 @@ class PendingSessionsViewController: UIViewController, UITableViewDelegate, UITa
             } else {
                 self.confirmed = false
             }
+            self.database.child("users/\(pendingSession["teacher id"]!)/session requests/\(sessionID!)").removeValue()
+            self.database.child("users/\(pendingSession["learner id"]!)/sent requests/\(sessionID!)").removeValue()
+            /*
             let requestsRef = self.database.child("users").child(pendingSession["teacher id"]!)
             requestsRef.child("session requests").observeSingleEvent(of: .value, with: {snapshot in
                 var requests: [String] = snapshot.value as! [String]
                 let index = requests.index(of: sessionID!)
                 requests.remove(at: index!)
                 requestsRef.child("session requests").setValue(requests)
-            })
+            })*/
             
-            pendingSessionsRef.child(sessionID!).removeValue()
+            self.database.child("session requests/\(sessionID!)").removeValue()
             
             let index = self.pendingSessionIDs.index(of: sessionID!)
             self.pendingSessionIDs.remove(at: index!)
