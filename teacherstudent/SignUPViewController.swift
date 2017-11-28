@@ -31,6 +31,8 @@ class SignUPViewController: UIViewController {
                 ref.child("name").setValue(self.nameTextField.text!)
                 ref.child("teacher sessions").setValue(0)
                 ref.child("student sessions").setValue(0)
+                ref.child("sum student ratings").setValue(0)
+                ref.child("sum teacher ratings").setValue(0)
                 ref.child("teacher rating").setValue(0.0)
                 ref.child("student rating").setValue(0.0)
                 ref.child("availability").setValue(["Monday":" ", "Tuesday":" ", "Wednesday": " ",
