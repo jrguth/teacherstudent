@@ -53,6 +53,40 @@ class TeacherProfileViewController: UIViewController {
         
     }
     
+    @IBOutlet weak var messagetosend: UITextField!
+    @IBAction func sendbutton(_ sender: UIButton) {
+        let myRef = self.database.child("users/\(self.userID!)/conversations")
+        let conversationref = self.database.child("conversations").childByAutoId()
+        let messageRef = conversationref.childByAutoId()
+        
+        let teacherRef = self.database.child("users/\(self.teacherUserID!)/conversations")
+        
+        let message = messagetosend.text!
+        let key = messageRef.key
+        
+        
+        conversationref.child("\(key)/message").setValue(message)
+        conversationref.child("\(key)/sender").setValue(self.userID!)
+        myRef.child(conversationref.key).setValue(nameLabel.text!)
+        
+        self.database.observeSingleEvent(of: .value, with: {snapshot in
+            let myName = snapshot.childSnapshot(forPath: "users/\(self.userID!)/name").value as! String
+            teacherRef.child(conversationref.key).setValue(myName)
+        })
+        
+        
+        
+        
+        
+        
+        messagetosend.isHidden = true
+        sender.isHidden = true
+        sender.isEnabled = false
+        let aleart = UIAlertController(title: "message sent", message: "check message board for conversation", preferredStyle: .alert)
+        let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+        aleart.addAction(action)
+        self.present(aleart, animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
