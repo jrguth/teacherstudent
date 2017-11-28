@@ -19,6 +19,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var saturdayLabel: UILabel!
     @IBOutlet weak var sundayLabel: UILabel!
     
+    @IBOutlet weak var signedInAsLabel: UILabel!
+    
     var database: DatabaseReference!
     var userID: String!
     var availability: Dictionary<String,String>!
@@ -30,9 +32,11 @@ class SettingsViewController: UIViewController {
         
         self.userID = Auth.auth().currentUser?.uid
         
-        let ref = self.database.child("users").child(self.userID).child("availability")
+        let ref = self.database.child("users").child(self.userID)
         ref.observeSingleEvent(of: .value, with: {snapshot in
-            self.availability = snapshot.value as! Dictionary<String,String>
+            let signedInString = "Signed in as " + String(describing: snapshot.childSnapshot(forPath: "name").value!)
+            self.signedInAsLabel.text = signedInString
+            self.availability = snapshot.childSnapshot(forPath: "availability").value as! Dictionary<String,String>
             self.updateAvailability()
         })
         

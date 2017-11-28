@@ -12,7 +12,11 @@
 		8035836F1FA26FE8006BA002 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */; };
 		803838F01FC382E40016491A /* SentRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803838EF1FC382E40016491A /* SentRequestsViewController.swift */; };
 		803838F21FC3944C0016491A /* CancelRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803838F11FC3944C0016491A /* CancelRequestViewController.swift */; };
+		804FDE0D1FCBBC7A00FAD774 /* FinalizeSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804FDE0C1FCBBC7A00FAD774 /* FinalizeSessionViewController.swift */; };
+		804FDE0F1FCBBD4300FAD774 /* CompletedSessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804FDE0E1FCBBD4300FAD774 /* CompletedSessionsViewController.swift */; };
+		804FDE111FCBBF4000FAD774 /* CompletedSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804FDE101FCBBF4000FAD774 /* CompletedSessionTableViewCell.swift */; };
 		8051E2AD1FBA687A00104FAA /* PendingSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8051E2AC1FBA687A00104FAA /* PendingSessionTableViewCell.swift */; };
+		8069A7031FCB5E8A000E4138 /* CompleteSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8069A7021FCB5E89000E4138 /* CompleteSessionViewController.swift */; };
 		809B81381FB8C820003AD78E /* TeacherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B81371FB8C820003AD78E /* TeacherTableViewCell.swift */; };
 		80A093001FBA407C00D15DFD /* RequestSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A092FF1FBA407C00D15DFD /* RequestSessionViewController.swift */; };
 		80B3AE971FA283270086566B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80B3AE961FA283260086566B /* GoogleService-Info.plist */; };
@@ -67,7 +71,11 @@
 		8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
 		803838EF1FC382E40016491A /* SentRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentRequestsViewController.swift; sourceTree = "<group>"; };
 		803838F11FC3944C0016491A /* CancelRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRequestViewController.swift; sourceTree = "<group>"; };
+		804FDE0C1FCBBC7A00FAD774 /* FinalizeSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalizeSessionViewController.swift; sourceTree = "<group>"; };
+		804FDE0E1FCBBD4300FAD774 /* CompletedSessionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedSessionsViewController.swift; sourceTree = "<group>"; };
+		804FDE101FCBBF4000FAD774 /* CompletedSessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedSessionTableViewCell.swift; sourceTree = "<group>"; };
 		8051E2AC1FBA687A00104FAA /* PendingSessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingSessionTableViewCell.swift; sourceTree = "<group>"; };
+		8069A7021FCB5E89000E4138 /* CompleteSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSessionViewController.swift; sourceTree = "<group>"; };
 		809B81371FB8C820003AD78E /* TeacherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTableViewCell.swift; sourceTree = "<group>"; };
 		80A092FF1FBA407C00D15DFD /* RequestSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSessionViewController.swift; sourceTree = "<group>"; };
 		80B3AE961FA283260086566B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -205,6 +213,10 @@
 				801962FF1FC381B3000DBA2B /* SentRequestTableViewCell.swift */,
 				803838EF1FC382E40016491A /* SentRequestsViewController.swift */,
 				803838F11FC3944C0016491A /* CancelRequestViewController.swift */,
+				8069A7021FCB5E89000E4138 /* CompleteSessionViewController.swift */,
+				804FDE0C1FCBBC7A00FAD774 /* FinalizeSessionViewController.swift */,
+				804FDE0E1FCBBD4300FAD774 /* CompletedSessionsViewController.swift */,
+				804FDE101FCBBF4000FAD774 /* CompletedSessionTableViewCell.swift */,
 			);
 			path = teacherstudent;
 			sourceTree = "<group>";
@@ -298,7 +310,7 @@
 				TargetAttributes = {
 					CCBFACDA1F9913D800847B70 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 625732G463;
+						DevelopmentTeam = WD7YA8A82J;
 						ProvisioningStyle = Automatic;
 					};
 					CCBFACF11F9913D800847B70 = {
@@ -424,12 +436,16 @@
 				CCBFAD121F99211700847B70 /* LearnViewController.swift in Sources */,
 				CCBFAD261F993FEE00847B70 /* SessionViewController.swift in Sources */,
 				CCBFAD181F9921C200847B70 /* MessageViewController.swift in Sources */,
+				804FDE111FCBBF4000FAD774 /* CompletedSessionTableViewCell.swift in Sources */,
 				CCBFAD161F99213A00847B70 /* SettingsViewController.swift in Sources */,
 				80E1F9971FB3ECDE00D065A2 /* EditSettingsViewController.swift in Sources */,
 				809B81381FB8C820003AD78E /* TeacherTableViewCell.swift in Sources */,
 				8035836F1FA26FE8006BA002 /* SkillTableViewCell.swift in Sources */,
 				CCBFAD281F99412E00847B70 /* ConfirmSessionViewController.swift in Sources */,
+				804FDE0D1FCBBC7A00FAD774 /* FinalizeSessionViewController.swift in Sources */,
+				8069A7031FCB5E8A000E4138 /* CompleteSessionViewController.swift in Sources */,
 				CCBFAD101F99210400847B70 /* TeacherViewController.swift in Sources */,
+				804FDE0F1FCBBD4300FAD774 /* CompletedSessionsViewController.swift in Sources */,
 				CCBFAD221F993F9B00847B70 /* TeacherProfileViewController.swift in Sources */,
 				CCBFAD201F993F7F00847B70 /* teacherDataBaseViewController.swift in Sources */,
 				CCBFAD691FA2410B00847B70 /* SessionHistroyViewController.swift in Sources */,
@@ -601,11 +617,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
-				DEVELOPMENT_TEAM = 625732G463;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WD7YA8A82J;
 				INFOPLIST_FILE = teacherstudent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iowa.teacherstudent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -616,11 +636,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
-				DEVELOPMENT_TEAM = 625732G463;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WD7YA8A82J;
 				INFOPLIST_FILE = teacherstudent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iowa.teacherstudent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
