@@ -1,5 +1,5 @@
 //
-//  ConversationTableViewCell.swift
+//  MessageTableViewCell.swift
 //  teacherstudent
 //
 //  Created by Jacob Guth on 11/28/17.
@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ConversationTableViewCell: UITableViewCell {
+class MessageTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var receivedLabel: UILabel!
+    @IBOutlet weak var sentLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

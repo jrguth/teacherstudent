@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8002A4C31FCE179F00FA2BBB /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002A4C21FCE179F00FA2BBB /* ConversationViewController.swift */; };
+		8002A4C51FCE181900FA2BBB /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002A4C41FCE181900FA2BBB /* MessageTableViewCell.swift */; };
 		801963001FC381B3000DBA2B /* SentRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801962FF1FC381B3000DBA2B /* SentRequestTableViewCell.swift */; };
 		802711F11FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802711F01FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift */; };
 		8035836F1FA26FE8006BA002 /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */; };
@@ -65,6 +67,8 @@
 
 /* Begin PBXFileReference section */
 		732B1ED346E723B1C794F5C8 /* libPods-teacherstudent.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-teacherstudent.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8002A4C21FCE179F00FA2BBB /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		8002A4C41FCE181900FA2BBB /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		801962FF1FC381B3000DBA2B /* SentRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentRequestTableViewCell.swift; sourceTree = "<group>"; };
 		802711F01FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingSessionTableViewCell.swift; sourceTree = "<group>"; };
 		8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				CCBFAD171F9921C200847B70 /* MessageViewController.swift */,
+				8002A4C21FCE179F00FA2BBB /* ConversationViewController.swift */,
 			);
 			path = "Message Controllers";
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 				801962FF1FC381B3000DBA2B /* SentRequestTableViewCell.swift */,
 				809B81371FB8C820003AD78E /* TeacherTableViewCell.swift */,
 				8035836E1FA26FE8006BA002 /* SkillTableViewCell.swift */,
+				8002A4C41FCE181900FA2BBB /* MessageTableViewCell.swift */,
 			);
 			path = "Table Cells";
 			sourceTree = "<group>";
@@ -510,6 +516,7 @@
 				CCBFAD201F993F7F00847B70 /* teacherDataBaseViewController.swift in Sources */,
 				CCBFAD691FA2410B00847B70 /* SessionHistoryViewController.swift in Sources */,
 				801963001FC381B3000DBA2B /* SentRequestTableViewCell.swift in Sources */,
+				8002A4C31FCE179F00FA2BBB /* ConversationViewController.swift in Sources */,
 				CCBFACDF1F9913D800847B70 /* AppDelegate.swift in Sources */,
 				CCBFACE71F9913D800847B70 /* teacherstudent.xcdatamodeld in Sources */,
 				CCBFAD2A1F9944BF00847B70 /* SkillViewController.swift in Sources */,
@@ -520,6 +527,7 @@
 				8051E2AD1FBA687A00104FAA /* PendingSessionTableViewCell.swift in Sources */,
 				803838F01FC382E40016491A /* SentRequestsViewController.swift in Sources */,
 				CCBFAD1E1F99331300847B70 /* ForgotViewController.swift in Sources */,
+				8002A4C51FCE181900FA2BBB /* MessageTableViewCell.swift in Sources */,
 				802711F11FBAB4F900A0C384 /* UpcomingSessionTableViewCell.swift in Sources */,
 				CCBFAD1A1F9932C800847B70 /* loginViewController.swift in Sources */,
 			);
