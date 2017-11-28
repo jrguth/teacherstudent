@@ -11,7 +11,7 @@
 import Foundation
 import UIKit
 
-class SessionHistroyViewController: UIViewController {
+class SessionHistoryViewController: UIViewController {
     //test
     override func viewDidLoad() {
         super.viewDidLoad()
