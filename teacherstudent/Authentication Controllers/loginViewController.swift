@@ -19,6 +19,14 @@ class loginViewController: UIViewController {
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
         }
+        
+        Auth.auth().signIn(withEmail: "jacobguth96@gmail.com", password: "Iowa41313132") { (user, error) in
+            if error == nil {
+                print("You have successfully logged in")
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MasterTabViewController")
+                self.present(vc!, animated: true, completion: nil)
+            }
+        }
     }
     @IBAction func forgotbutton(_ sender: UIButton) {
         performSegue(withIdentifier: "ForgotSegue", sender: self)
