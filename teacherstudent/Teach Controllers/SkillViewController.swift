@@ -38,6 +38,13 @@ class SkillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return self.skills.count
     }
     
+    @IBAction func locationservicesswitch(_ sender: UISwitch) {
+        if sender.isOn{
+            
+        }
+    }
+    @IBOutlet weak var zipcode: UITextField!
+    @IBOutlet weak var Distance: UITextField!
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return self.skills[row]
     }

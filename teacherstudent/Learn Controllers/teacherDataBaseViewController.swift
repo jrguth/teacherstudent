@@ -23,6 +23,7 @@ class teacherDataBaseViewController: UIViewController, UITableViewDelegate, UITa
     
     var skill: String?
     var teacherList: [[String]] = [[String]]()
+    var messagchecker: [Bool] = [Bool]()
     
     var selectedTeacherID: String?
 
@@ -47,6 +48,7 @@ class teacherDataBaseViewController: UIViewController, UITableViewDelegate, UITa
                     //APPEND TEACHER LOCATION HERE
                     //teacher.append(String(child.childSnapshot(forPath: "teacher location").value as! String))
                     teacher.append(child.key)
+                    self.messagchecker.append(true)
                     
                     self.teacherList.append(teacher)
                 }
@@ -69,6 +71,7 @@ class teacherDataBaseViewController: UIViewController, UITableViewDelegate, UITa
         cell.nameLabel.text = teacherList[indexPath.row][0]
         cell.ratingLabel.text = teacherList[indexPath.row][1] + " / 10"
         cell.completedSessionsLabel.text = teacherList[indexPath.row][2]
+        
         //ADD DISTANCE LABEL HERE
         //cell.distanceLabel.text = teacherList[indexPath.row][3]
         return cell
@@ -81,6 +84,8 @@ class teacherDataBaseViewController: UIViewController, UITableViewDelegate, UITa
         destination?.teacherUserID = teacherList[(indexPath?.row)!][3]
         destination?.skill = self.skill
         destination?.title = "Teacher profile"
+        destination?.isMEssagable = messagchecker[(indexPath?.row)!]
+        
     }
 }
 

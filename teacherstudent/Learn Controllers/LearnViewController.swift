@@ -43,13 +43,12 @@ class LearnViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         self.title = "Learn"
         
-        skills = ["Basketball","Cooking","Coding","Mathematics","Microsoft Office"]
+        skills = ["Basketball","Cooking","Java", "Mathematics","Microsoft Office","Football","Tennis","hockey","baseball","Chemistry","Biology","English","Grammer","French","Spanish","German","Chinesse","History","Painting","Crafts","boxing","kickboxing"]
         selectedSkill = skills[0]
         selectedSkillLabel.text = selectedSkill
     }
     @IBAction func locationswitch(_ sender: UISwitch) {
         if(sender.isOn){
-               //locationManger.requestWhenInUseAuthorization() in the app location
         print( locationManager.location!)
             
         }

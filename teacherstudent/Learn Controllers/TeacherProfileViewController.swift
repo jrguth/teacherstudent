@@ -28,6 +28,7 @@ class TeacherProfileViewController: UIViewController {
     @IBOutlet weak var fridayLabel: UILabel!
     @IBOutlet weak var saturdayLabel: UILabel!
     @IBOutlet weak var sundayLabel: UILabel!
+    var isMEssagable:Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,8 @@ class TeacherProfileViewController: UIViewController {
     
     @IBOutlet weak var messagetosend: UITextField!
     @IBAction func sendbutton(_ sender: UIButton) {
+        if(isMEssagable){
+            
         let myRef = self.database.child("users/\(self.userID!)/conversations")
         let conversationref = self.database.child("conversations").childByAutoId()
         let messageRef = conversationref.childByAutoId()
@@ -73,19 +76,18 @@ class TeacherProfileViewController: UIViewController {
             let myName = snapshot.childSnapshot(forPath: "users/\(self.userID!)/name").value as! String
             teacherRef.child(conversationref.key).setValue(myName)
         })
-        
-        
-        
-        
-        
-        
-        messagetosend.isHidden = true
-        sender.isHidden = true
-        sender.isEnabled = false
+            messagetosend.isHidden = true
+            sender.isHidden = true
+            sender.isEnabled = false
+            
         let aleart = UIAlertController(title: "message sent", message: "check message board for conversation", preferredStyle: .alert)
         let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
         aleart.addAction(action)
         self.present(aleart, animated: true, completion: nil)
+        isMEssagable = false
+            // send back to bool array in teacher database to blank out feild and send 2nd time through
+        
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
