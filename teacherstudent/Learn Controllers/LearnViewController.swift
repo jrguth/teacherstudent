@@ -15,6 +15,7 @@ class LearnViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
  var locationManager = CLLocationManager.init()
     
     @IBOutlet weak var selectedSkillLabel: UILabel!
+    
    
     @IBOutlet weak var skillsPickerView: UIPickerView!
     
