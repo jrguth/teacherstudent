@@ -14,6 +14,8 @@ class TeacherTableViewCell: UITableViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var completedSessionsLabel: UILabel!
     
+    @IBOutlet weak var DIstanceLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

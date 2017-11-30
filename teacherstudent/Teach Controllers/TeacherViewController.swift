@@ -118,6 +118,11 @@ class TeacherViewController: UIViewController, UITableViewDelegate, UITableViewD
                     teacherRef.child("name").setValue(name)
                     teacherRef.child("teacher rating").setValue(teacherRating)
                     teacherRef.child("teacher sessions").setValue(teacherSessions)
+                    
+                    
+                    teacherRef.child("Lat").setValue(sourceViewController.lat)
+                    teacherRef.child("Long").setValue(sourceViewController.long)
+                    
                     //ADD TEACHER LAT LONG VALUE HERE
                     //teacherRef.child("teacher location").setValue(LATLONGASSTRING)
                 }){(error) in

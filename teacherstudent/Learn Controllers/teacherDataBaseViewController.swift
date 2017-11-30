@@ -10,14 +10,18 @@
 import Foundation
 import UIKit
 import Firebase
+import CoreLocation
 
-class teacherDataBaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class teacherDataBaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
 
     @IBOutlet weak var tableView: UITableView!
     
     var database: DatabaseReference!
     var userID: String!
+    var mylat:Double!
+    var myLong:Double!
+    var locationManager = CLLocationManager.init()
     
     @IBOutlet weak var selectedSkillLabel: UILabel!
     
@@ -68,12 +72,16 @@ class teacherDataBaseViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: TeacherTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "TeacherTableViewCell", for: indexPath) as! TeacherTableViewCell
         
-        cell.nameLabel.text = teacherList[indexPath.row][0]
-        cell.ratingLabel.text = teacherList[indexPath.row][1] + " / 10"
-        cell.completedSessionsLabel.text = teacherList[indexPath.row][2]
-        
+        cell.nameLabel.text = teacherList[indexPath.row][2]
+        cell.ratingLabel.text = teacherList[indexPath.row][3] + " / 10"
+        cell.completedSessionsLabel.text = teacherList[indexPath.row][4]
+        let templat = Double(teacherList[indexPath.row][0])
+        let templong = Double(teacherList[indexPath.row][1])
+    
+    
+        let templocation = CLLocation.init(latitude: templat!,  longitude: templong! )
         //ADD DISTANCE LABEL HERE
-        //cell.distanceLabel.text = teacherList[indexPath.row][3]
+        cell.DIstanceLabel.text = String(describing: locationManager.location?.distance(from: templocation))
         return cell
     }
 

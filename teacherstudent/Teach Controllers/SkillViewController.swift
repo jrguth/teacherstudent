@@ -9,11 +9,15 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
-class SkillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SkillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
 
     @IBOutlet weak var selectedSkillLabel: UILabel!
     @IBOutlet weak var skillPickerView: UIPickerView!
+    var lat:String!
+    var long:String!
+    var locationManager = CLLocationManager.init()
     
     var selectedSkill: String?
     
@@ -21,11 +25,21 @@ class SkillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        skills = ["Basketball", "Cooking", "Coding", "Mathematics", "Microsoft Office"]
+        locationManager.requestWhenInUseAuthorization()
+        skills = ["sports","Basketball","hockey","football","baseball","tennis" ,"Cooking", "Coding", "Mathematics", "Microsoft Office","Java","swift","physics","English","French","German","Spanish",]
         selectedSkill = skills[0]
-        selectedSkillLabel.text = selectedSkill
+        if CLLocationManager.locationServicesEnabled() {
+            //locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+            
+        }
+        //selectedSkillLabel.text = selectedSkill
+      
     }
-    
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -40,7 +54,10 @@ class SkillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBAction func locationservicesswitch(_ sender: UISwitch) {
         if sender.isOn{
-            
+            long = String(describing: locationManager.location?.coordinate.latitude)
+            lat  = String(describing: locationManager.location?.coordinate.longitude)
+            print(lat)
+            print(long)
         }
     }
     @IBOutlet weak var zipcode: UITextField!
@@ -51,11 +68,37 @@ class SkillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedSkill = skills[row]
-        self.selectedSkillLabel.text = selectedSkill
+        //self.selectedSkillLabel.text = selectedSkill
     }
     
+    @IBAction func distancefromme(_ sender: UITextField) {
+    }
+    @IBAction func distancetozip(_ sender: UITextField) {
+    }
+    @IBAction func zipcode(_ sender: UITextField) {
+        getCoordinate(addressString: sender.text!)
+    }
+    func getCoordinate( addressString : String)
+ {
+    let geocoder = CLGeocoder()
+    geocoder.geocodeAddressString(addressString) { (placemarks, error) in
+    if error == nil {
+    if let placemark = placemarks?[0] {
+        self.lat = String(describing: placemark.location!.coordinate.latitude)
+        self.long = String(describing: placemark.location!.coordinate.longitude)
+
+        print(self.long)
+        print(self.lat)
+    
+        }}}
+    }
+  
+    @IBOutlet weak var togeoccodetext: UITextField!
+    @IBAction func geocode(_ sender: UIButton) {
+        getCoordinate(addressString: togeoccodetext.text!)
+    }
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+
 }

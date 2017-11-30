@@ -21,7 +21,8 @@ class LearnViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBOutlet weak var tableView: UIPickerView!
     var database: DatabaseReference!
-    
+    var learnlat:Double!
+    var learnLong:Double!
     var selectedSkill: String!
     
     var skills: [String] = [String]()
@@ -49,6 +50,8 @@ class LearnViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     @IBAction func locationswitch(_ sender: UISwitch) {
         if(sender.isOn){
+            learnlat = locationManager.location?.coordinate.latitude
+            learnLong = locationManager.location?.coordinate.longitude
         print( locationManager.location!)
             
         }
@@ -93,6 +96,8 @@ class LearnViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         if let destinationVC = segue.destination as? teacherDataBaseViewController{
             destinationVC.skill = self.selectedSkill!
             destinationVC.title = "Teachers for \(self.selectedSkill!)"
+            destinationVC.mylat = learnlat
+            destinationVC.myLong = learnLong
         }
     }
     override func didReceiveMemoryWarning() {
