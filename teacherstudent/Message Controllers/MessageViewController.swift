@@ -13,9 +13,13 @@ import Firebase
 class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var database: DatabaseReference!
+    var conversationsRef: DatabaseReference!
     
+    var conversationIDs: [String] = [String]()
     var conversations: Dictionary<String,String> = Dictionary<String,String>()
     var userID: String?
+    
+    var initialLoad: Bool!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,24 +28,60 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.database = Database.database().reference()
         self.database.keepSynced(true)
-        
+        self.initialLoad = true
         self.userID = Auth.auth().currentUser?.uid
+        
+        self.conversationsRef = self.database.child("users/\(self.userID!)/conversations")
+        
+        self.conversationsRef.observe(.childAdded, with: {snapshot in
+
+            let otherID = snapshot.key
+            let otherName = snapshot.childSnapshot(forPath: "with").value as! String
+            let conversationID = snapshot.childSnapshot(forPath: "conversation id").value as! String
+            
+            self.conversationIDs.append(conversationID)
+            self.conversations[otherID] = otherName
+            
+            if (!self.initialLoad) {
+                self.tableView.reloadData()
+            }
+        })
+        
+        self.conversationsRef.observeSingleEvent(of: .value, with: {snapshot in
+            var conversationListIDs: [String] = [String]()
+            var conversationList: Dictionary<String,String> = Dictionary<String,String>()
+            let enumerator = snapshot.children
+            while let child = enumerator.nextObject() as? DataSnapshot {
+                let otherID = child.key
+                let otherName = child.childSnapshot(forPath: "with").value as? String
+                conversationList[otherID] = otherName!
+                conversationListIDs.append((child.childSnapshot(forPath: "conversation id").value as? String)!)
+            }
+            self.conversations = conversationList
+            self.conversationIDs = conversationListIDs
+            self.tableView.reloadData()
+            self.initialLoad = false
+        })
+        
     }
-    
+    /*
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
 
         self.database.observeSingleEvent(of: .value, with: {snapshot in
-            print(snapshot.childSnapshot(forPath: "users/\(self.userID!)/conversations"))
             
             if (snapshot.hasChild("users/\(self.userID!)/conversations")) {
-                self.conversations = snapshot.childSnapshot(forPath: "users/\(self.userID!)/conversations").value as! Dictionary<String,String>
+                let conversationList = snapshot.childSnapshot(forPath: "users/\(self.userID!)/conversations").value as! Dictionary<String,String>
+                self.conversationIDs = [String](conversationList.values)
+                
+                for id in conversationList.keys {
+                    self.conversations[id] = snapshot.childSnapshot(forPath: "users/\(id)/name").value as? String
+                }
                 self.tableView.reloadData()
             }
         })
-        
-    }
+    }*/
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.conversations.count
@@ -61,7 +101,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let destination = segue.destination as? ConversationViewController {
             let cell = sender as? ConversationTableViewCell
             let indexPath = tableView.indexPath(for: cell!)
-            let id = Array(self.conversations.keys)[(indexPath?.row)!]
+            let id = self.conversationIDs[(indexPath?.row)!]
             
             destination.conversationID = id
         }

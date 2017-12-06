@@ -1,6 +1,6 @@
 Teacher student app test account logins:
 
--teacher student.test1@gmail.com
+-teacherstudent.test1@gmail.com
 -teacher student.test2@gmail.com
 -teacher student.test3@gmail.com
 -teacher student.test4@gmail.com

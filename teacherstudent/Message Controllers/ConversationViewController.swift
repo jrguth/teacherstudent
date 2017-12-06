@@ -12,11 +12,14 @@ import Firebase
 class ConversationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     var database: DatabaseReference!
+    var conversationRef: DatabaseReference!
     
     var userID: String!
     var conversationID: String!
     
     var conversation: [Dictionary<String,String>] = [Dictionary<String,String>]()
+    
+    var initialLoad: Bool!
     
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -29,12 +32,24 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
         
         self.userID = Auth.auth().currentUser?.uid
         
-        refreshMessages()
+        self.conversationRef = self.database.child("conversations/\(self.conversationID!)")
+        self.initialLoad = true
         
-    }
-
-    private func refreshMessages() {
-        self.database.child("conversations/\(self.conversationID!)").observeSingleEvent(of: .value, with: {snapshot in
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 200
+        
+        self.conversationRef.observe(.childAdded, with: {snapshot in
+            var dict: [String: String]! = [String: String]()
+            dict["message"] = snapshot.childSnapshot(forPath: "message").value as? String
+            dict["sender"] = snapshot.childSnapshot(forPath: "sender").value as? String
+            self.conversation.append(dict!)
+            
+            if (!self.initialLoad) {
+                self.tableView.reloadData()
+            }
+        })
+        
+        self.conversationRef.observeSingleEvent(of: .value, with: {snapshot in
             var messages: [Dictionary<String,String>] = [Dictionary<String,String>]()
             let enumerator = snapshot.children
             while let child = enumerator.nextObject() as? DataSnapshot {
@@ -43,9 +58,10 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
             }
             self.conversation = messages
             self.tableView.reloadData()
+            self.initialLoad = false
         })
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.conversation.count
     }
@@ -64,16 +80,18 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
             cell.sentLabel.isHidden = true
         }
         
+        cell.receivedLabel.sizeToFit()
+        cell.sentLabel.sizeToFit()
+        
+        
         return cell
     }
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         let messageText = self.messageTextField.text!
         if !messageText.isEmpty {
-            let conversationRef = self.database.child("conversations/\(self.conversationID!)")
             let message = ["message": messageText, "sender": self.userID!]
-            conversationRef.childByAutoId().setValue(message)
-            refreshMessages()
+            self.conversationRef.childByAutoId().setValue(message)
             self.messageTextField.text = ""
         } else {
             let alert = UIAlertController(title: nil, message: "please enter text to send a message", preferredStyle: .alert)
@@ -82,8 +100,6 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
             self.present(alert, animated:true, completion: nil)
         }
     }
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -13,6 +13,8 @@ class loginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var errorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,13 +22,14 @@ class loginViewController: UIViewController {
             FirebaseApp.configure()
         }
         
+        /*
         Auth.auth().signIn(withEmail: "jacobguth96@gmail.com", password: "Iowa41313132") { (user, error) in
             if error == nil {
                 print("You have successfully logged in")
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "MasterTabViewController")
                 self.present(vc!, animated: true, completion: nil)
             }
-        }
+        }*/
     }
     @IBAction func forgotbutton(_ sender: UIButton) {
         performSegue(withIdentifier: "ForgotSegue", sender: self)
@@ -49,6 +52,8 @@ class loginViewController: UIViewController {
                     print("You have successfully logged in")
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "MasterTabViewController")
                     self.present(vc!, animated: true, completion: nil)
+                } else {
+                    self.errorLabel.text = "Log in failed... please try again"
                 }
             }
         }

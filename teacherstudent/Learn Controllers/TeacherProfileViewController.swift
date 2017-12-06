@@ -16,6 +16,7 @@ class TeacherProfileViewController: UIViewController {
     var teacherUserID: String?
     var userID: String?
     var skill: String?
+    var myName: String!
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var teacherRatingLabel: UILabel!
@@ -29,11 +30,21 @@ class TeacherProfileViewController: UIViewController {
     @IBOutlet weak var saturdayLabel: UILabel!
     @IBOutlet weak var sundayLabel: UILabel!
     
+    @IBOutlet weak var sendMessageLabel: UILabel!
+    @IBOutlet weak var messageToSend: UITextView!
+    @IBOutlet weak var sendButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         database = Database.database().reference()
         database.keepSynced(true)
         self.userID = Auth.auth().currentUser?.uid
+        
+        self.messageToSend.layer.borderWidth = 1.0
+        
+        self.database.child("users/\(self.userID!)/name").observeSingleEvent(of: .value, with: {snapshot in
+            self.myName = snapshot.value as? String
+        })
         
         let ref = database.child("users").child(self.teacherUserID!)
         ref.observeSingleEvent(of: .value, with: {snapshot in
@@ -49,43 +60,59 @@ class TeacherProfileViewController: UIViewController {
             self.fridayLabel.text = dict["Friday"]
             self.saturdayLabel.text = dict["Saturday"]
             self.sundayLabel.text = dict["Sunday"]
+            
+            if snapshot.hasChild("conversations/\(self.userID!)") {
+                self.sendMessageLabel.text = "You already have a conversation with \(self.nameLabel.text!). Open the conversation in the messages tab to request a session."
+                self.messageToSend.isHidden = true
+                self.sendButton.isHidden = true
+            }
         })
-        
     }
     
-    @IBOutlet weak var messagetosend: UITextField!
     @IBAction func sendbutton(_ sender: UIButton) {
         let myRef = self.database.child("users/\(self.userID!)/conversations")
-        let conversationref = self.database.child("conversations").childByAutoId()
-        let messageRef = conversationref.childByAutoId()
-        
         let teacherRef = self.database.child("users/\(self.teacherUserID!)/conversations")
-        
-        let message = messagetosend.text!
+        let conversationRef = self.database.child("conversations").childByAutoId()
+        let conversationKey = conversationRef.key
+        let messageRef = conversationRef.childByAutoId()
+
+        let message = self.messageToSend.text!
         let key = messageRef.key
         
+        conversationRef.child("\(key)/message").setValue(message)
+        conversationRef.child("\(key)/sender").setValue(self.userID!)
         
-        conversationref.child("\(key)/message").setValue(message)
-        conversationref.child("\(key)/sender").setValue(self.userID!)
-        myRef.child(conversationref.key).setValue(nameLabel.text!)
+        var newConversation: Dictionary<String,String> = Dictionary<String,String>()
         
+        newConversation["conversation id"] = conversationKey
+        newConversation["with"] = self.nameLabel.text!
+        myRef.child(self.teacherUserID!).setValue(newConversation)
+        
+        newConversation["with"] = self.myName
+        teacherRef.child(self.userID!).setValue(newConversation)
+        
+        /*
+        myRef.child("\(self.teacherUserID!)/conversation id").setValue(conversationKey)
+        myRef.child("\(self.teacherUserID!)/with").setValue(self.nameLabel.text!)
+        teacherRef.child("\(self.userID!)/conversation id").setValue(conversationKey)
+        teacherRef.child("\(self.userID!)/with").setValue(self.myName)*/
+        
+        
+        /*
         self.database.observeSingleEvent(of: .value, with: {snapshot in
             let myName = snapshot.childSnapshot(forPath: "users/\(self.userID!)/name").value as! String
-            teacherRef.child(conversationref.key).setValue(myName)
-        })
+            teacherRef.child("\(conversationRef.key)/other name").setValue(myName)
+            teacherRef.child("\(conversationRef.key)/other id").setValue(self.userID!)
+        })*/
+
+        self.sendMessageLabel.isHidden = true
+        self.messageToSend.isHidden = true
+        self.sendButton.isHidden = true
         
-        
-        
-        
-        
-        
-        messagetosend.isHidden = true
-        sender.isHidden = true
-        sender.isEnabled = false
-        let aleart = UIAlertController(title: "message sent", message: "check message board for conversation", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Message sent", message: "Check your messages tab to view the conversation and/or request a session with \(self.nameLabel.text!)", preferredStyle: .alert)
         let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
-        aleart.addAction(action)
-        self.present(aleart, animated: true, completion: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
